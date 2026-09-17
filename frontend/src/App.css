@@ -1,0 +1,66 @@
+/* 
+ * App.css
+ * -------
+ * Estilos customizados do componente App.
+ * Animações auxiliares usadas nos componentes de login e resultado.
+ * O layout e estilização principal são controlados pelas classes Tailwind no JSX.
+ */
+
+/* Animação de entrada com fade + zoom (usada no card de login e resultado) */
+@keyframes fadeInZoom {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Animação de entrada deslizando de cima (usada na mensagem de erro do login) */
+@keyframes slideInFromTop {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animação de entrada deslizando da esquerda (usada na mensagem de erro principal) */
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Classes utilitárias de animação que substituem as classes "animate-in" do Tailwind */
+.animate-in {
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-timing-function: ease-out;
+}
+
+.fade-in {
+  animation-name: fadeInZoom;
+}
+
+.zoom-in-95 {
+  animation-name: fadeInZoom;
+}
+
+.slide-in-from-top-2 {
+  animation-name: slideInFromTop;
+}
+
+.slide-in-from-left-4 {
+  animation-name: slideInFromLeft;
+}

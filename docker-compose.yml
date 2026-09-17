@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  backend:
+    build: 
+      context: ./backend
+    container_name: castanha_backend
+    network_mode: "host"
+    restart: always
+    # Se houver um .env no backend para variáveis como credenciais do BD, ele será lido automaticamente
+    env_file:
+      - ./backend/.env
+
+  frontend:
+    build: 
+      context: ./frontend
+      args:
+        # ATENÇÃO: Troque "IP_DO_SERVIDOR_LINUX" pelo IP da máquina Linux onde o docker vai rodar!
+        # Exemplo: - VITE_API_URL=http://192.168.0.41:8000
+        - VITE_API_URL=http://192.168.0.50:8000
+    container_name: castanha_frontend
+    ports:
+      - "82:80"
+    restart: always
+    depends_on:
+      - backend

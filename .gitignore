@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+.idea/
+.env
+node_modules/
+dist/
+.codex-backups/
+*.log
+server_log.txt
